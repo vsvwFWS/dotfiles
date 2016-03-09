@@ -9,7 +9,7 @@ zstyle :compinstall filename '/home/ohnishi/.zshrc'
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 # 履歴の記録数
-HISTFILE=~/.histfile
+# HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -19,7 +19,6 @@ autoload -U compinit promptinit
 compinit
 promptinit
 # prompt [prompt_name] -- change preset prompt
-prompt walters
 
 # zstyle ':completion:*' menu select
 setopt HIST_IGNORE_DUPS
@@ -76,9 +75,9 @@ fi
 bindkey -e
 
 # シンタックスハイライト
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Alias definitions
-alias ls='ls --color=auto'
-alias ll='ls -l'
+# alias ls='ls --color=auto'
+# alias ll='ls -l'
 # End of lines configured by zsh-newuser-install
