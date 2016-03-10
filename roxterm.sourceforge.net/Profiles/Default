@@ -1,0 +1,22 @@
+[roxterm profile]
+font=Ricty 12
+hide_menubar=1
+always_show_tabs=0
+show_add_tab_btn=0
+saturation=0.793956
+colour_scheme=Molokai
+win_title=ROX://%s
+hide_mouse=0
+audible_bell=0
+scroll_on_output=0
+scroll_on_keystroke=1
+tab_close_btn=0
+new_tabs_adjacent=1
+middle_click_tab=1
+show_tab_num=1
+wrap_switch_tab=1
+title_string=%s
+scrollbar_pos=1
+term=xterm-256color
+disable_menu_shortcuts=1
+disable_menu_access=1
