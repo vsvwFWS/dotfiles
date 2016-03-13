@@ -1,39 +1,35 @@
-"dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath^=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+let mapleader = ','
+let maplocalleader = ' '
 
-" Required:
-call dein#begin(expand('~/.config/nvim/dein'))
+function! s:source_rc(path)
+    if has('nvim')
+        let base_conf_dir = resolve(expand('~/.config/nvim/'))
+    else
+        let base_conf_dir = resolve(expand('~/.vim/'))
+    endif
 
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
+    execute 'source ' . base_conf_dir . '/' . a:path
+endfunction
 
-" Add or remove your plugins here:
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/deoplete.nvim')
+"Start dein Scripts-----------------------------
+call s:source_rc('rc/dein.rc.vim')
 
-" You can specify revision/branch/tag.
-" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-" call dein#add('Shougo/vimshell') " Requires vimproc
-"
-" Required:
-call dein#end()
+if has('nvim')
+    call s:source_rc('rc/nvim.rc.vim')
+else
+    call s:source_rc('rc/vim.rc.vim')
+endif
 
-" Required:
-filetype plugin indent on
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
+if has('vim_starting') && dein#check_install()
+  " Installation check.
   call dein#install()
 endif
-" Set parameters of dein plugins
-let g:deoplete#enable_at_startup=1
 
 "End dein Scripts-------------------------
 
@@ -41,11 +37,6 @@ let g:deoplete#enable_at_startup=1
 set number
 set hidden
 
-" NeoVim parameters
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-if $TERM !~ 'rxvt'
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
 
 " Indentation settings
 set autoindent
@@ -59,6 +50,9 @@ set ignorecase
 set smartcase
 
 set wildmode=list:longest,full
+
+nnoremap <C-l> :<C-u>nohls<CR><C-l>
+" call s:source_rc('rc/keymap.vim')
 
 syntax on
 colorscheme desert
