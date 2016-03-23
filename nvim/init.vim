@@ -24,7 +24,6 @@ else
     call s:source_rc('rc/vim.rc.vim')
 endif
 
-
 " If you want to install not installed plugins on startup.
 if has('vim_starting') && dein#check_install()
   " Installation check.

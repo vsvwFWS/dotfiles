@@ -34,20 +34,40 @@ call dein#add('Shougo/vimproc.vim', {
             \ })
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/context_filetype.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/unite.vim', {
+            \ 'depends': ['neomru.vim']
+            \ })
 
-" 非同期読込
+" テキストオブジェクト、オペレーター
+call dein#add('kana/vim-textobj-user')
+call dein#add('kana/vim-operator-user')
+
+call dein#add('kana/vim-textobj-indent', {
+            \ 'depends': 'vim-textobj-user',
+            \ })
+" 編集補助
+call dein#add('tpope/vim-surround', {
+            \ 'on_path': '.*',
+            \ })
+call dein#add('mattn/emmet-vim', {
+            \ 'on_i': 1,
+            \ })
 call dein#add('Shougo/neosnippet.vim', {
             \ 'depends': ['neosnippet-snippets', 'context_filetype.vim'],
             \ 'on_i' : 1,
-            \ 'on_ft': ['snippet']
+            \ 'on_ft': ['snippet'],
             \ })
 call dein#add('Shougo/deoplete.nvim', {
             \ 'depends': ['context_filetype.vim'],
-            \ 'on_i': 1
+            \ 'if': "has('nvim')",
+            \ 'on_i': 1,
             \ })
-call dein#add('tpope/vim-surround',{
-            \ 'on_i': 1 
-            \ })
+call dein#add('Shougo/neocomplete.vim', {
+            \ 'depends': 'context_filetype.vim',
+            \ 'if': "has('lua')",
+            \ 'on_i': 1,
+            \})
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -65,12 +85,38 @@ endif
 filetype plugin indent on
 
 " 各種プラグイン設定
+if dein#tap('unite.vim')
+    "call unite#custom#profile('default', 'context', {
+    "            \   'start_insert': 1,
+    "            \   'winheight': 10,
+    "            \   'direction': 'botright',
+    "            \ })
+    nmap <Leader>u [unite]
+    nnoremap <silent> [unite]s :<C-u>Unite source<CR>
+    nnoremap <silent> [unite]m :<C-u>Unite neomru/file neomru/directory<CR>
+    nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+    nnoremap <silent> [unite]f :<C-u>Unite file/async file_rec/neovim<CR>
+    nnoremap <silent> [unite]k :<C-u>Unite mapping<CR>
+    nnoremap [unite]u :<C-u>Unite<Space>
+endif
+
 if dein#tap('deoplete.nvim') && has('nvim') "{{{
-  let g:loaded_neocomplete = 1
-  let g:deoplete#enable_at_startup = 1
+    let g:loaded_neocomplete = 1
+    let g:deoplete#enable_at_startup = 1
 endif "}}}
 
 if dein#tap('neocomplete.vim') && has('lua') "{{{
-  let g:loaded_deoplete = 1
-  let g:neocomplete#enable_at_startup = 1
+    let g:loaded_deoplete = 1
+    let g:neocomplete#enable_at_startup = 1
 endif "}}}
+
+if dein#tap('emmet-vim')
+    let g:user_emmet_install_global = 0
+    let g:user_emmet_settings = {
+                \    'variables' : {
+                \        'lang' : 'ja',
+                \    }
+                \ }
+    " let g:user_emmet_leader_key = '<C-y>'  " Default key
+    autocmd MyAutoCmd FileType html,css EmmetInstall
+endif
