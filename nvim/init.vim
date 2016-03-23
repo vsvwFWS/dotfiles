@@ -2,8 +2,10 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+nnoremap <silent> , <Nop>
 let mapleader = ','
 let maplocalleader = ' '
+nnoremap <silent> \ ,
 
 function! s:source_rc(path)
     if has('nvim')
@@ -14,6 +16,12 @@ function! s:source_rc(path)
 
     execute 'source ' . base_conf_dir . '/' . a:path
 endfunction
+
+" Set augroup.
+" 一箇所でまとめて定義できない autocmd のグループを定義
+augroup MyAutoCmd
+  autocmd!
+augroup END
 
 "Start dein Scripts-----------------------------
 call s:source_rc('rc/dein.rc.vim')
@@ -36,6 +44,9 @@ endif
 set number
 set hidden
 
+set virtualedit=block
+set nobackup
+" set backupdir=~/.cache/vim_bk
 
 " Indentation settings
 set autoindent
@@ -48,10 +59,16 @@ set softtabstop=4
 set ignorecase
 set smartcase
 
+set nowildmenu
 set wildmode=list:longest,full
 
-nnoremap <C-l> :<C-u>nohls<CR><C-l>
+" key mappings
+nnoremap <silent> <C-l> :<C-u>nohls<CR><C-l>
+nnoremap <Leader>g :<C-u>Gtags
+nnoremap <C-p> :<C-u>cN<CR>
+nnoremap <C-n> :<C-u>cn<CR>
 " call s:source_rc('rc/keymap.vim')
 
-syntax on
+" syntax on
+syntax enable
 colorscheme desert

@@ -14,3 +14,4 @@ else
 endif
 
 set history=10000
+set hlsearch
