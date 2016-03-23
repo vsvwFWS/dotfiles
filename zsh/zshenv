@@ -3,3 +3,8 @@ typeset -U path
 path=(~/bin $path[@])
 
 export XDG_CONFIG_HOME=${HOME}/.config
+
+export GOPATH=~/go
+export PATH="$PATH:$GOPATH/bin"
+
+
