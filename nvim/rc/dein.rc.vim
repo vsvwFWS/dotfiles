@@ -21,22 +21,23 @@ call dein#begin(s:path)
 
 " Let dein manage dein
 " Required:
-" 同期読込
+" プラグイン管理・ユーティリティ
 call dein#add('Shougo/dein.vim')
+
 call dein#add('Shougo/vimproc.vim', {
-            \ 'build': {
-            \     'windows': 'tools\\update-dll-mingw',
-            \     'cygwin': 'make -f make_cygwin.mak',
-            \     'mac': 'make -f make_mac.mak',
-            \     'linux': 'make',
-            \     'unix': 'gmake',
-            \    },
+            \ 'build': 'make',
             \ })
+
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/context_filetype.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/unite.vim', {
             \ 'depends': ['neomru.vim']
+            \ })
+
+call dein#add('Shougo/vimfiler.vim', {
+            \ 'depends': ['unite.vim'],
+            \ 'on_path': '.*',
             \ })
 
 " テキストオブジェクト、オペレーター
@@ -68,6 +69,10 @@ call dein#add('Shougo/neocomplete.vim', {
             \ 'if': "has('lua')",
             \ 'on_i': 1,
             \})
+
+" カラースキーム
+call dein#add('w0ng/vim-hybrid')
+call dein#add('altercation/vim-colors-solarized')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })

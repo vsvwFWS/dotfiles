@@ -62,6 +62,8 @@ set smartcase
 set nowildmenu
 set wildmode=list:longest,full
 
+set noswapfile
+
 " key mappings
 nnoremap <silent> <C-l> :<C-u>nohls<CR><C-l>
 nnoremap <Leader>g :<C-u>Gtags
@@ -71,4 +73,7 @@ nnoremap <C-n> :<C-u>cn<CR>
 
 " syntax on
 syntax enable
+set background=dark
 colorscheme desert
+" colorscheme hybrid
+" colorscheme solarized
