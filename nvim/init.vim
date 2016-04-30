@@ -62,7 +62,7 @@ set smartcase
 set nowildmenu
 set wildmode=list:longest,full
 
-set noswapfile
+" set noswapfile
 
 " key mappings
 nnoremap <silent> <C-l> :<C-u>nohls<CR><C-l>
