@@ -59,10 +59,16 @@ set softtabstop=4
 set ignorecase
 set smartcase
 
+set list
+set listchars=tab:>-,trail:_,extends:>,precedes:<
+
 set nowildmenu
 set wildmode=list:longest,full
 
 " set noswapfile
+
+" settings of plugins which are not managed by plugin manager.
+let g:Gtags_Auto_Map = 1
 
 " key mappings
 nnoremap <silent> <C-l> :<C-u>nohls<CR><C-l>

@@ -70,6 +70,12 @@ call dein#add('Shougo/neocomplete.vim', {
             \ 'on_i': 1,
             \})
 
+" テキスト整形
+" call dein#add('h1mesuke/vim-alignta', { \ })
+call dein#add('junegunn/vim-easy-align')
+" バイナリ編集
+call dein#add('Shougo/vinarise.vim')
+
 " カラースキーム
 call dein#add('w0ng/vim-hybrid')
 call dein#add('altercation/vim-colors-solarized')
@@ -124,4 +130,10 @@ if dein#tap('emmet-vim')
                 \ }
     " let g:user_emmet_leader_key = '<C-y>'  " Default key
     autocmd MyAutoCmd FileType html,css EmmetInstall
+endif
+
+if dein#tap('vim-easy-align')
+    " Start interactive EasyAlign.
+    nmap ga <Plug>(EasyAlign)
+    xmap ga <Plug>(EasyAlign)
 endif
