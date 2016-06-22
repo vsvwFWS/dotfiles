@@ -7,4 +7,6 @@ export XDG_CONFIG_HOME=${HOME}/.config
 export GOPATH=~/Code/go
 export PATH="$PATH:$GOPATH/bin"
 
-
+# ツールの設定
+export EDITOR=nvim
+export MANWIDTH=100
