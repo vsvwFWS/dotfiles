@@ -1,5 +1,5 @@
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible               " Vi IMproved
 endif
 
 nnoremap <silent> , <Nop>
@@ -65,6 +65,9 @@ set listchars=tab:>-,trail:_,extends:>,precedes:<
 set nowildmenu
 set wildmode=list:longest,full
 
+" Use Ag for :grep command
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
 " set noswapfile
 
 " settings of plugins which are not managed by plugin manager.
@@ -79,7 +82,7 @@ nnoremap <C-n> :<C-u>cn<CR>
 
 " syntax on
 syntax enable
-set background=dark
 colorscheme desert
+" set background=dark
 " colorscheme hybrid
 " colorscheme solarized
