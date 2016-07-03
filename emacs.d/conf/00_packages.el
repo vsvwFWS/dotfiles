@@ -2,9 +2,6 @@
 (el-get-bundle ag)
 (el-get-bundle wgrep)
 
-(el-get-bundle auto-complete)
-;; (el-get-bundle company-mode)
-
 (el-get-bundle color-moccur)
 (el-get-bundle moccur-edit)
 
@@ -21,6 +18,8 @@
 (el-get-bundle evil-tabs)
 (el-get-bundle evil-visualstar)
 
+(el-get-bundle flycheck)
+
 (el-get-bundle fold-dwim)
 
 (el-get-bundle lispxmp)
@@ -33,8 +32,21 @@
 
 (el-get-bundle recentf-ext)
 
+;; Ocaml
+;; (el-get-bundle tuareg)
+;; (el-get-bundle utop)
+;; (el-get-bundle merlin)
+
+;; 補完プラグイン
+(el-get-bundle auto-complete)
+
+;; (el-get-bundle pos-tip)
+;; (el-get-bundle company-mode)
+;; (el-get-bundle company-quickhelp)
+
 (el-get 'sync)
 
+;; package.el
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
