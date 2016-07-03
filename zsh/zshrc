@@ -92,3 +92,6 @@ function peco-history-selection() {
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
+
+# Ocaml
+. /home/ohnishi/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
