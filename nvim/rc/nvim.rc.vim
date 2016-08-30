@@ -1,14 +1,17 @@
 " NeoVim parameters
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-if $TERM !~ 'rxvt'
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
+
+set termguicolors
+
+" 
+let g:python_host_prog  = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python'
 
 " Terminal Settings
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
+tnoremap <M-h> <C-\><C-n><C-w>h
+tnoremap <M-j> <C-\><C-n><C-w>j
+tnoremap <M-k> <C-\><C-n><C-w>k
+tnoremap <M-l> <C-\><C-n><C-w>l
 
 let g:terminal_scrollback_buffer_size = 10000 " default 1000
 
